@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/react-rubiks-cube/static/css/main.ced6e8a4.css",
+    "main.js": "/react-rubiks-cube/static/js/main.ebee46a2.js",
+    "static/js/787.140e63c8.chunk.js": "/react-rubiks-cube/static/js/787.140e63c8.chunk.js",
+    "index.html": "/react-rubiks-cube/index.html",
+    "main.ced6e8a4.css.map": "/react-rubiks-cube/static/css/main.ced6e8a4.css.map",
+    "main.ebee46a2.js.map": "/react-rubiks-cube/static/js/main.ebee46a2.js.map",
+    "787.140e63c8.chunk.js.map": "/react-rubiks-cube/static/js/787.140e63c8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ced6e8a4.css",
+    "static/js/main.ebee46a2.js"
+  ]
+}
