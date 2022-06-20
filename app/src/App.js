@@ -32,22 +32,45 @@ function App() {
   })
   return (
     <div>
+      <button onClick={() => setState(F(state))}>F</button>
+      <button onClick={() => setState(U(state))}>U</button>
+      <button onClick={() => setState(D(state))}>D</button>
+      <button onClick={() => setState(R(state))}>R</button>
+      <button onClick={() => setState(L(state))}>L</button>
+      <button onClick={() => setState(B(state))}>B</button>
+      <button onClick={() => setState(X(state))}>X</button>
+      <button onClick={() => setState(Y(state))}>Y</button>
+      <br/>
+      <button onClick={() => setState(F_(state))}>F'</button>
+      <button onClick={() => setState(U_(state))}>U'</button>
+      <button onClick={() => setState(D_(state))}>D'</button>
+      <button onClick={() => setState(R_(state))}>R'</button>
+      <button onClick={() => setState(L_(state))}>L'</button>
+      <button onClick={() => setState(B_(state))}>B'</button>
+      <button onClick={() => setState(X_(state))}>X'</button>
+      <button onClick={() => setState(Y_(state))}>Y'</button>
       <Rubik state={state}/>
-      <button onClick={() => setState(rotate(state))}>F</button>
-      <button onClick={() => setState(vertical(rotate(vertical(vertical(vertical(state))))))}>U</button>
-      <button onClick={() => setState(vertical(vertical(vertical(rotate((vertical(state)))))))}>D</button>
-      <button onClick={() => setState(horizontal(horizontal(horizontal(rotate(horizontal(state))))))}>R</button>
-      <button onClick={() => setState(horizontal(rotate(horizontal(horizontal(horizontal(state))))))}>L</button>
-      <button onClick={() => setState(horizontal(horizontal(rotate(horizontal(horizontal(state))))))}>B</button>
-      <button onClick={() => setState(horizontal(state))}>Y</button>
-      <button onClick={() => setState(vertical(state))}>X</button>
     </div>
   );
 }
 
+const U = (state) => X(F(X(X(X(state)))))
+const U_ = (state) => U(U(U(state)))
+const D = (state) => X(X(X(F((X(state))))))
+const D_ = (state) => D(D(D(state)))
+const R = (state) => Y(Y(Y(F(Y(state)))))
+const R_ = (state) => R(R(R(state)))
+const L = (state) => Y(F(Y(Y(Y(state)))))
+const L_ = (state) => L(L(L(state)))
+const B = (state) => Y(Y(F(Y(Y(state)))))
+const B_ = (state) => B(B(B(state)))
+const F_ = (state) => F(F(F(state)))
+const X_ = (state) => X(X(X(state)))
+const Y_ = (state) => Y(Y(Y(state)))
+
 function Rubik({state}) {
   return (
-    <div>
+    <div class="rubik">
       <div style={{"clear": "both"}}>
         <GridPadding/>
         <Grid colors={[
@@ -169,7 +192,7 @@ function Cell({color}) {
   return <td style={{background: color}}/>
 }
 
-function rotate(state) {
+function F(state) {
   const newState = {...state}
   newState.L12 = state.L15
   newState.L16 = state.L12
@@ -182,7 +205,7 @@ function rotate(state) {
   return newState
 }
 
-function horizontal(state) {
+function Y(state) {
   const newState = {
     "C1": state.C2, 
     "C2": state.C3,
@@ -222,7 +245,7 @@ function rotateQuina(quina) {
   return quina[2] + quina[0] + quina[1]
 }
 
-function vertical(state) {
+function X(state) {
   const newState = {
     "C1": state.C6, 
     "C2": state.C2,
